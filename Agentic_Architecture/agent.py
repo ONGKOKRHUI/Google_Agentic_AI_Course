@@ -1,7 +1,7 @@
 from google.adk.agents import Agent
-from google.adk.runners import InMemoryRunner
+#from google.adk.runners import InMemoryRunner
 from google.adk.tools import google_search
-from google.genai import types
+#from google.genai import types
 
 print("✅ ADK components imported successfully.")
 
@@ -13,4 +13,12 @@ root_agent = Agent(
     tools=[google_search],
 )
 
-print("✅ Root Agent defined.")
+
+
+# print("✅ Root Agent defined.")
+
+# runner = InMemoryRunner(agent=root_agent)
+
+# print("✅ Runner created.")
+
+# response = await runner.run_debug("What is Agent Development Kit from Google? What languages is the SDK available in?")

@@ -1,4 +1,5 @@
 import uuid
+import os
 from google.genai import types
 
 from google.adk.agents import LlmAgent
@@ -15,6 +16,8 @@ from google.adk.apps.app import App, ResumabilityConfig
 from google.adk.tools.function_tool import FunctionTool
 
 print("✅ ADK components imported successfully.")
+
+google_maps_api_key = os.environ.get("GOOGLE_MAPS_API_KEY")
 
 retry_config = types.HttpRetryOptions(
     attempts=5,  # Maximum retry attempts

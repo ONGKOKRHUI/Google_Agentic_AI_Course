@@ -1,3 +1,50 @@
+"""
+Shipping Coordinator - ADK Resumable Agent Demo
+================================================
+
+This script demonstrates how to build a long-running, pausable,
+human-in-the-loop workflow using the Google Agent Developer Kit (ADK).
+
+It implements a shipping coordinator agent that handles container 
+shipping requests. Small orders are auto-approved, while large orders 
+require explicit human confirmation. The workflow supports "pausing" 
+when human intervention is needed, and then "resuming" the same tool 
+invocation using ADK's resumability system.
+
+Key Concepts Demonstrated
+-------------------------
+
+1. **FunctionTool with Human Approval**
+   - The `place_shipping_order()` tool simulates business logic.
+   - Orders with `num_containers <= 5` are auto-approved.
+   - Orders with `num_containers > 5` trigger a pause via:
+        `tool_context.request_confirmation()`
+
+2. **Resumable Tool Execution**
+   - The tool is called twice:
+        (a) First: detects large order → pauses → returns "pending".
+        (b) Second: receives human approval response → resumes execution.
+
+3. **LlmAgent + App**
+   - `LlmAgent` handles natural language reasoning and decides when to call the tool.
+   - `App(resumable=True)` enables multi-step tool invocation with state saved
+     across calls.
+
+4. **Runner + InMemorySessionService**
+   - Provides session handling to maintain state across resume events.
+   - Each user workflow uses a unique session ID so the agent can continue 
+     from where it paused.
+
+5. **Workflow Execution Demo**
+   - `run_shipping_workflow()` simulates a user request end-to-end, including:
+        - sending the request
+        - capturing pause events
+        - injecting human approval
+        - resuming the agent
+        - printing the final result
+"""
+
+
 import uuid
 from google.genai import types
 import asyncio

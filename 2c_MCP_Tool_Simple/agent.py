@@ -9,9 +9,7 @@ from google.adk.runners import InMemoryRunner
 from google.adk.tools.mcp_tool.mcp_toolset import McpToolset
 from google.adk.tools.mcp_tool.mcp_session_manager import StdioConnectionParams
 
-# NOTE: The 'mcp' module (for StdioServerParameters) is assumed to be available
-# or its necessary definitions are present in a utility file if not using the Kaggle environment.
-# For simplicity, we'll try to rely on imports found in the notebook.
+
 try:
     from mcp import StdioServerParameters
 except ImportError:

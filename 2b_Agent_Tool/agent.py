@@ -169,4 +169,4 @@ print("🔧 Tool types used:")
 print("  • Function Tools (fees, rates)")
 print("  • Agent Tool (calculation specialist)")
 
-#    "Convert 1,250 USD to INR using a Bank Transfer. Show me the precise calculation."
+# Prompt: Convert 1,250 USD to INR using a Bank Transfer. Show me the precise calculation.
